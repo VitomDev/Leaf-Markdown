@@ -1,4 +1,4 @@
-# 🍃 Leaf Markdown
+# 🍃 Leaf Markdown — Simple Markdown Reader
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A minimal Markdown viewer for Windows 10/11, built with C# and WebView2.  
