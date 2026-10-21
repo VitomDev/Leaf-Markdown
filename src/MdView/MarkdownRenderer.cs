@@ -31,7 +31,7 @@ internal static class MarkdownRenderer
         using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete))
         {
             if (fs.Length > MaxFileSize)
-                throw new IOException("El archivo es demasiado grande para mostrarlo.");
+                throw new IOException("The file is too large to display.");
             using var ms = new MemoryStream((int)fs.Length);
             fs.CopyTo(ms);
             bytes = ms.ToArray();

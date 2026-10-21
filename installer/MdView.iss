@@ -27,13 +27,9 @@ Compression=lzma2/max
 SolidCompression=yes
 WizardStyle=modern
 
-[Languages]
-Name: "es"; MessagesFile: "compiler:Languages\Spanish.isl"
-Name: "en"; MessagesFile: "compiler:Default.isl"
-
 [Tasks]
-Name: "assoc"; Description: "Abrir los archivos .md con MdView"; GroupDescription: "Opciones:"
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "Opciones:"; Flags: unchecked
+Name: "assoc"; Description: "Open .md files with MdView"; GroupDescription: "{cm:AdditionalIcons}"
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
 Source: "..\dist\{#AppExe}"; DestDir: "{app}"; Flags: ignoreversion
@@ -45,7 +41,7 @@ Name: "{autoprograms}\{#AppName}"; Filename: "{app}\{#AppExe}"
 Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppExe}"; Tasks: desktopicon
 
 [Registry]
-Root: HKCU; Subkey: "Software\Classes\{#ProgId}"; ValueType: string; ValueData: "Documento Markdown"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "Software\Classes\{#ProgId}"; ValueType: string; ValueData: "Markdown Document"; Flags: uninsdeletekey
 Root: HKCU; Subkey: "Software\Classes\{#ProgId}\DefaultIcon"; ValueType: string; ValueData: """{app}\{#AppExe}"",0"
 Root: HKCU; Subkey: "Software\Classes\{#ProgId}\shell\open\command"; ValueType: string; ValueData: """{app}\{#AppExe}"" ""%1"""
 Root: HKCU; Subkey: "Software\Classes\Applications\{#AppExe}"; ValueType: string; ValueName: "FriendlyAppName"; ValueData: "{#AppName}"; Flags: uninsdeletekey
@@ -58,7 +54,7 @@ Root: HKCU; Subkey: "Software\Classes\.markdown\OpenWithProgids"; ValueType: str
 Root: HKCU; Subkey: "Software\Classes\.md"; ValueType: string; ValueData: "{#ProgId}"; Tasks: assoc; Flags: uninsdeletevalue
 Root: HKCU; Subkey: "Software\Classes\.markdown"; ValueType: string; ValueData: "{#ProgId}"; Tasks: assoc; Flags: uninsdeletevalue
 Root: HKCU; Subkey: "Software\MdView\Capabilities"; ValueType: string; ValueName: "ApplicationName"; ValueData: "{#AppName}"; Flags: uninsdeletekey
-Root: HKCU; Subkey: "Software\MdView\Capabilities"; ValueType: string; ValueName: "ApplicationDescription"; ValueData: "Visor Markdown minimalista"
+Root: HKCU; Subkey: "Software\MdView\Capabilities"; ValueType: string; ValueName: "ApplicationDescription"; ValueData: "Minimal Markdown viewer"
 Root: HKCU; Subkey: "Software\MdView\Capabilities\FileAssociations"; ValueType: string; ValueName: ".md"; ValueData: "{#ProgId}"
 Root: HKCU; Subkey: "Software\MdView\Capabilities\FileAssociations"; ValueType: string; ValueName: ".markdown"; ValueData: "{#ProgId}"
 Root: HKCU; Subkey: "Software\RegisteredApplications"; ValueType: string; ValueName: "{#AppName}"; ValueData: "Software\MdView\Capabilities"; Flags: uninsdeletevalue
@@ -82,8 +78,8 @@ var
 begin
   Result := True;
   if not HasDesktopRuntime10 then
-    if MsgBox('MdView necesita .NET 10 Desktop Runtime (x64), que no está instalado.' + #13#10#13#10 +
-              '¿Abrir la página de descarga? Puedes seguir con la instalación e instalarlo después.',
+    if MsgBox('MdView needs the .NET 10 Desktop Runtime (x64), which is not installed.' + #13#10#13#10 +
+              'Open the download page? You can continue the setup and install it afterwards.',
               mbConfirmation, MB_YESNO) = IDYES then
       ShellExec('open', 'https://dotnet.microsoft.com/download/dotnet/10.0', '', '', SW_SHOWNORMAL, ewNoWait, Code);
 end;

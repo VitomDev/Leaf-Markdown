@@ -23,7 +23,7 @@ internal static class FileAssociation
 
         using (var prog = classes.CreateSubKey(ProgId))
         {
-            prog.SetValue("", "Documento Markdown");
+            prog.SetValue("", "Markdown Document");
             using (var icon = prog.CreateSubKey("DefaultIcon")) icon.SetValue("", $"\"{exe}\",0");
             using (var cmd = prog.CreateSubKey(@"shell\open\command")) cmd.SetValue("", command);
         }
@@ -42,7 +42,7 @@ internal static class FileAssociation
         using (var caps = Registry.CurrentUser.CreateSubKey(CapabilitiesKey))
         {
             caps.SetValue("ApplicationName", "MdView");
-            caps.SetValue("ApplicationDescription", "Visor Markdown minimalista");
+            caps.SetValue("ApplicationDescription", "Minimal Markdown viewer");
             using var assoc = caps.CreateSubKey("FileAssociations");
             foreach (var ext in Extensions) assoc.SetValue(ext, ProgId);
         }
@@ -55,10 +55,10 @@ internal static class FileAssociation
         catch { }
 
         MessageBox.Show(
-            "MdView se ha registrado para archivos Markdown y ya aparece en el menú Inicio y en el buscador de Windows.\n\n" +
-            "En la ventana de Aplicaciones predeterminadas que se acaba de abrir, elige MdView para .md.\n" +
-            "También puedes hacer clic derecho en un .md › Abrir con › Elegir otra aplicación › MdView › Siempre.\n\n" +
-            "Si mueves MdView.exe a otra carpeta, vuelve a ejecutar --register.",
+            "MdView is now registered for Markdown files and shows up in the Start menu and Windows Search.\n\n" +
+            "In the Default apps window that just opened, choose MdView for .md.\n" +
+            "You can also right-click a .md file > Open with > Choose another app > MdView > Always.\n\n" +
+            "If you move MdView.exe to another folder, run --register again.",
             "MdView", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
@@ -74,7 +74,7 @@ internal static class FileAssociation
         File.Delete(ShortcutPath);
 
         Notify();
-        MessageBox.Show("Se ha eliminado el registro de MdView.", "MdView", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        MessageBox.Show("MdView has been unregistered.", "MdView", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private static string ShortcutPath =>
@@ -92,7 +92,7 @@ internal static class FileAssociation
             link.TargetPath = exe;
             link.WorkingDirectory = Path.GetDirectoryName(exe);
             link.IconLocation = exe + ",0";
-            link.Description = "Visor Markdown minimalista";
+            link.Description = "Minimal Markdown viewer";
             link.Save();
         }
         catch { }

@@ -127,14 +127,14 @@ internal sealed class MainForm : Form
         catch (WebView2RuntimeNotFoundException)
         {
             MessageBox.Show(this,
-                "No se encontró Microsoft Edge WebView2 Runtime.\n\nDescárgalo desde:\nhttps://developer.microsoft.com/microsoft-edge/webview2/",
+                "Microsoft Edge WebView2 Runtime was not found.\n\nDownload it from:\nhttps://developer.microsoft.com/microsoft-edge/webview2/",
                 AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             Close();
             return;
         }
         catch (Exception ex)
         {
-            MessageBox.Show(this, "No se pudo iniciar el visor:\n" + ex.Message, AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(this, "The viewer could not start:\n" + ex.Message, AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             Close();
             return;
         }
@@ -268,8 +268,8 @@ internal sealed class MainForm : Form
     {
         using var dlg = new OpenFileDialog
         {
-            Title = "Abrir Markdown",
-            Filter = "Markdown (*.md;*.markdown;*.mdown;*.mkd)|*.md;*.markdown;*.mdown;*.mkd;*.mkdn;*.mdwn;*.mdtxt;*.mdtext|Todos los archivos (*.*)|*.*",
+            Title = "Open Markdown",
+            Filter = "Markdown (*.md;*.markdown;*.mdown;*.mkd)|*.md;*.markdown;*.mdown;*.mkd;*.mkdn;*.mdwn;*.mdtxt;*.mdtext|All files (*.*)|*.*",
             InitialDirectory = _path != null ? Path.GetDirectoryName(_path) : null,
         };
         if (dlg.ShowDialog(this) == DialogResult.OK) OpenFile(dlg.FileName);
@@ -311,7 +311,7 @@ internal sealed class MainForm : Form
         string html;
         if (_path == null)
         {
-            html = "<div class=\"empty\"><p>Arrastra un archivo Markdown aquí<br>o <a href=\"mdview:open\">ábrelo</a> con <kbd>Ctrl</kbd>+<kbd>O</kbd></p></div>";
+            html = "<div class=\"empty\"><p>Drop a Markdown file here<br>or <a href=\"mdview:open\">open one</a> with <kbd>Ctrl</kbd>+<kbd>O</kbd></p></div>";
         }
         else
         {
@@ -329,9 +329,9 @@ internal sealed class MainForm : Form
                     return;
                 }
                 string reason = ex is FileNotFoundException or DirectoryNotFoundException
-                    ? "El archivo no existe."
-                    : ex is UnauthorizedAccessException ? "No hay permiso para leer el archivo." : ex.Message;
-                html = "<div class=\"empty\"><p class=\"error\">No se pudo abrir <b>" + WebUtility.HtmlEncode(Path.GetFileName(_path)) +
+                    ? "The file does not exist."
+                    : ex is UnauthorizedAccessException ? "You don't have permission to read the file." : ex.Message;
+                html = "<div class=\"empty\"><p class=\"error\">Could not open <b>" + WebUtility.HtmlEncode(Path.GetFileName(_path)) +
                        "</b><br>" + WebUtility.HtmlEncode(reason) + "</p></div>";
             }
         }
