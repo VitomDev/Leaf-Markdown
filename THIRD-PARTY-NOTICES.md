@@ -1,6 +1,6 @@
 # Third-party notices
 
-MdView includes the following third-party software. Their licenses are reproduced below.
+Leaf Markdown includes the following third-party software. Their licenses are reproduced below.
 
 ## Markdig
 

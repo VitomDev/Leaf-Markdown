@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 
-namespace MdView;
+namespace LeafMarkdown;
 
 internal static class Theme
 {

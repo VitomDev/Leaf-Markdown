@@ -2,7 +2,7 @@
 title: This is front matter and should not be shown
 ---
 
-# MdView test document
+# Leaf Markdown test document
 
 Text with **bold**, *italic*, ***both***, ~~strikethrough~~ and `inline code`. Unicode: áéíóú ñ ü ß ç, “quotes”, 😀 中文.
 

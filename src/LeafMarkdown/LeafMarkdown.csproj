@@ -6,12 +6,12 @@
     <UseWindowsForms>true</UseWindowsForms>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyName>MdView</AssemblyName>
-    <RootNamespace>MdView</RootNamespace>
+    <AssemblyName>LeafMarkdown</AssemblyName>
+    <RootNamespace>LeafMarkdown</RootNamespace>
     <ApplicationIcon>app.ico</ApplicationIcon>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
     <Version>1.0.0</Version>
-    <Product>MdView</Product>
+    <Product>Leaf Markdown</Product>
     <Description>Minimal Markdown viewer</Description>
 
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>

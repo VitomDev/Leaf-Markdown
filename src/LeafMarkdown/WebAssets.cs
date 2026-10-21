@@ -1,4 +1,4 @@
-namespace MdView;
+namespace LeafMarkdown;
 
 internal static class WebAssets
 {

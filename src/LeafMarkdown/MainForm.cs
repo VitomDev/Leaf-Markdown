@@ -3,13 +3,13 @@ using System.Net;
 using System.Text.Json;
 using Microsoft.Web.WebView2.Core;
 
-namespace MdView;
+namespace LeafMarkdown;
 
 internal sealed class MainForm : Form
 {
     // Not .local: Windows resolves that TLD over mDNS, which delays every page load by ~2 s.
-    private const string Origin = "https://mdview.example";
-    private const string AppName = "MdView";
+    private const string Origin = "https://leaf-markdown.example";
+    private const string AppName = "Leaf Markdown";
 
     private const string Csp =
         "default-src 'none'; " +
@@ -118,7 +118,7 @@ internal sealed class MainForm : Form
     {
         try
         {
-            string dataDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), AppName);
+            string dataDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "LeafMarkdown");
             // Software rendering is plenty for text and saves ~70 MB (no GPU process memory).
             var options = new CoreWebView2EnvironmentOptions("--disable-gpu");
             var env = await CoreWebView2Environment.CreateAsync(null, dataDir, options);
@@ -290,7 +290,7 @@ internal sealed class MainForm : Form
 
     private void HandleLink(string href)
     {
-        if (href == "mdview:open") { ShowOpenDialog(); return; }
+        if (href == "leaf:open") { ShowOpenDialog(); return; }
 
         if (Uri.TryCreate(href, UriKind.Absolute, out var uri) && !uri.IsFile)
         {
@@ -311,7 +311,7 @@ internal sealed class MainForm : Form
         string html;
         if (_path == null)
         {
-            html = "<div class=\"empty\"><p>Drop a Markdown file here<br>or <a href=\"mdview:open\">open one</a> with <kbd>Ctrl</kbd>+<kbd>O</kbd></p></div>";
+            html = "<div class=\"empty\"><p>Drop a Markdown file here<br>or <a href=\"leaf:open\">open one</a> with <kbd>Ctrl</kbd>+<kbd>O</kbd></p></div>";
         }
         else
         {

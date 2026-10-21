@@ -1,14 +1,14 @@
-﻿#define AppName "MdView"
+﻿#define AppName "Leaf Markdown"
 #define AppVersion "1.0.0"
-#define AppExe "MdView.exe"
-#define ProgId "MdView.Markdown"
+#define AppExe "LeafMarkdown.exe"
+#define ProgId "LeafMarkdown.Markdown"
 
 [Setup]
-AppId={{6B0C2B8E-3F4A-4E52-9C1D-7A2E5D8F4B10}
+AppId={{92BAB738-C41A-4CE8-A2FF-CF8A9F70723D}
 AppName={#AppName}
 AppVersion={#AppVersion}
 AppPublisher=Víctor Escós
-AppPublisherURL=https://github.com/VitomDev/MdView
+AppPublisherURL=https://github.com/VitomDev/Leaf-Markdown
 DefaultDirName={autopf}\{#AppName}
 DefaultGroupName={#AppName}
 DisableProgramGroupPage=yes
@@ -18,17 +18,17 @@ PrivilegesRequired=lowest
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 ChangesAssociations=yes
-SetupIconFile=..\src\MdView\app.ico
+SetupIconFile=..\src\LeafMarkdown\app.ico
 UninstallDisplayIcon={app}\{#AppExe}
 LicenseFile=..\LICENSE
 OutputDir=Output
-OutputBaseFilename=MdView-Setup-{#AppVersion}
+OutputBaseFilename=LeafMarkdown-Setup-{#AppVersion}
 Compression=lzma2/max
 SolidCompression=yes
 WizardStyle=modern
 
 [Tasks]
-Name: "assoc"; Description: "Open .md files with MdView"; GroupDescription: "{cm:AdditionalIcons}"
+Name: "assoc"; Description: "Open .md files with Leaf Markdown"; GroupDescription: "{cm:AdditionalIcons}"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
@@ -53,11 +53,11 @@ Root: HKCU; Subkey: "Software\Classes\.markdown\OpenWithProgids"; ValueType: str
 ; Default handler for .md, only when the user leaves the option checked. Windows may still ask once.
 Root: HKCU; Subkey: "Software\Classes\.md"; ValueType: string; ValueData: "{#ProgId}"; Tasks: assoc; Flags: uninsdeletevalue
 Root: HKCU; Subkey: "Software\Classes\.markdown"; ValueType: string; ValueData: "{#ProgId}"; Tasks: assoc; Flags: uninsdeletevalue
-Root: HKCU; Subkey: "Software\MdView\Capabilities"; ValueType: string; ValueName: "ApplicationName"; ValueData: "{#AppName}"; Flags: uninsdeletekey
-Root: HKCU; Subkey: "Software\MdView\Capabilities"; ValueType: string; ValueName: "ApplicationDescription"; ValueData: "Minimal Markdown viewer"
-Root: HKCU; Subkey: "Software\MdView\Capabilities\FileAssociations"; ValueType: string; ValueName: ".md"; ValueData: "{#ProgId}"
-Root: HKCU; Subkey: "Software\MdView\Capabilities\FileAssociations"; ValueType: string; ValueName: ".markdown"; ValueData: "{#ProgId}"
-Root: HKCU; Subkey: "Software\RegisteredApplications"; ValueType: string; ValueName: "{#AppName}"; ValueData: "Software\MdView\Capabilities"; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "Software\LeafMarkdown\Capabilities"; ValueType: string; ValueName: "ApplicationName"; ValueData: "{#AppName}"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "Software\LeafMarkdown\Capabilities"; ValueType: string; ValueName: "ApplicationDescription"; ValueData: "Minimal Markdown viewer"
+Root: HKCU; Subkey: "Software\LeafMarkdown\Capabilities\FileAssociations"; ValueType: string; ValueName: ".md"; ValueData: "{#ProgId}"
+Root: HKCU; Subkey: "Software\LeafMarkdown\Capabilities\FileAssociations"; ValueType: string; ValueName: ".markdown"; ValueData: "{#ProgId}"
+Root: HKCU; Subkey: "Software\RegisteredApplications"; ValueType: string; ValueName: "LeafMarkdown"; ValueData: "Software\LeafMarkdown\Capabilities"; Flags: uninsdeletevalue
 
 [Run]
 Filename: "{app}\{#AppExe}"; Description: "{cm:LaunchProgram,{#AppName}}"; Flags: nowait postinstall skipifsilent
@@ -78,7 +78,7 @@ var
 begin
   Result := True;
   if not HasDesktopRuntime10 then
-    if MsgBox('MdView needs the .NET 10 Desktop Runtime (x64), which is not installed.' + #13#10#13#10 +
+    if MsgBox('Leaf Markdown needs the .NET 10 Desktop Runtime (x64), which is not installed.' + #13#10#13#10 +
               'Open the download page? You can continue the setup and install it afterwards.',
               mbConfirmation, MB_YESNO) = IDYES then
       ShellExec('open', 'https://dotnet.microsoft.com/download/dotnet/10.0', '', '', SW_SHOWNORMAL, ewNoWait, Code);

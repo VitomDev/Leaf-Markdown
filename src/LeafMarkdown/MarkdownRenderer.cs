@@ -2,7 +2,7 @@ using System.Text;
 using Markdig;
 using Markdig.Extensions.AutoIdentifiers;
 
-namespace MdView;
+namespace LeafMarkdown;
 
 internal static class MarkdownRenderer
 {

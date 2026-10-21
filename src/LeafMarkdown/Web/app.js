@@ -7,7 +7,7 @@
   const BLOCKED = new Set(['SCRIPT', 'IFRAME', 'FRAME', 'FRAMESET', 'OBJECT', 'EMBED', 'APPLET',
     'META', 'BASE', 'LINK', 'FORM', 'NOSCRIPT', 'PORTAL', 'AUDIO', 'VIDEO', 'SOURCE', 'TRACK']);
   const URL_ATTRS = new Set(['href', 'src', 'xlink:href', 'action', 'formaction', 'poster', 'background', 'data', 'srcset']);
-  const SAFE_URL = /^(https?:|mailto:|mdview:open$|data:image\/(png|jpe?g|gif|webp|bmp)[;,]|#|[^:]*$)/i;
+  const SAFE_URL = /^(https?:|mailto:|leaf:open$|data:image\/(png|jpe?g|gif|webp|bmp)[;,]|#|[^:]*$)/i;
 
   function sanitize(fragment) {
     const walker = document.createTreeWalker(fragment, NodeFilter.SHOW_ELEMENT);
