@@ -7,7 +7,7 @@
 AppId={{92BAB738-C41A-4CE8-A2FF-CF8A9F70723D}
 AppName={#AppName}
 AppVersion={#AppVersion}
-AppPublisher=Víctor Escós
+AppPublisher=VitomDev
 AppPublisherURL=https://github.com/VitomDev/Leaf-Markdown
 DefaultDirName={autopf}\{#AppName}
 DefaultGroupName={#AppName}
