@@ -1,0 +1,9 @@
+{
+  "appId": "{92BAB738-C41A-4CE8-A2FF-CF8A9F70723D}",
+  "name": "Leaf Markdown",
+  "category": "Writing",
+  "icon": "assets/logo.png",
+  "screenshots": [],
+  "installer": "LeafMarkdown-Setup-*.exe",
+  "exe": "LeafMarkdown.exe"
+}
