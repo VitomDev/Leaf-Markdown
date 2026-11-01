@@ -3,7 +3,9 @@
   "name": "Leaf Markdown",
   "category": "Writing",
   "icon": "assets/logo.png",
-  "screenshots": [],
+  "screenshots": [
+    "assets/screenshots/screenshot-1.png"
+  ],
   "installer": "LeafMarkdown-Setup-*.exe",
   "exe": "LeafMarkdown.exe"
 }
