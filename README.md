@@ -6,6 +6,8 @@
 A minimal Markdown viewer for Windows 10/11, built with C# and WebView2.  
 It opens `.md` files and shows them beautifully rendered, like a PDF reader but for Markdown. No editing, no sidebars, no tabs.
 
+<p align="center"><img src="assets/screenshots/screenshot-1.png" width="640" alt="Leaf Markdown"></p>
+
 ---
 
 ## 🚀 Features
