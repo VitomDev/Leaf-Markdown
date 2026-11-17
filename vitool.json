@@ -6,6 +6,6 @@
   "screenshots": [
     "assets/screenshots/screenshot-1.png"
   ],
-  "installer": "LeafMarkdown-Setup-*.exe",
+  "installer": "Leaf*Setup*.exe",
   "exe": "LeafMarkdown.exe"
 }

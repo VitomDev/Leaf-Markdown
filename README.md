@@ -26,7 +26,7 @@ It opens `.md` files and shows them beautifully rendered, like a PDF reader but 
 
 ## 📦 Install
 
-Download `LeafMarkdown-Setup-x.y.z.exe` from [Releases](https://github.com/VitomDev/Leaf-Markdown/releases/latest) and run it.
+Download `LeafSetup.exe` from [Releases](https://github.com/VitomDev/Leaf-Markdown/releases/latest) and run it.
 
 > 🧰 **Recommended:** install it with [Vitool Box](https://github.com/VitomDev/Vitool-Box), which keeps all VitomDev apps in one place and installs or removes them with a switch.
 
@@ -43,10 +43,10 @@ Prefer a portable version? Download `LeafMarkdown.exe` and, to associate it with
 Requirements: .NET 10 SDK and Inno Setup 6 (`winget install JRSoftware.InnoSetup`).
 
 ```powershell
-.\build.cmd
+.\build.ps1
 ```
 
-It publishes the app to `dist/` and writes the installer to `installer/Output/`.
+It publishes the app to `build/app/` and writes the installer to `dist/LeafSetup.exe`. Add `-SkipInstaller` to build the app only.
 
 ---
 

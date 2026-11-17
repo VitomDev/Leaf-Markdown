@@ -1,6 +1,6 @@
 bin/
 obj/
 dist/
-installer/Output/
+build/
 .vs/
 *.user

@@ -21,8 +21,8 @@ ChangesAssociations=yes
 SetupIconFile=..\src\LeafMarkdown\app.ico
 UninstallDisplayIcon={app}\{#AppExe}
 LicenseFile=..\LICENSE
-OutputDir=Output
-OutputBaseFilename=LeafMarkdown-Setup-{#AppVersion}
+OutputDir=..\dist
+OutputBaseFilename=LeafSetup
 Compression=lzma2/max
 SolidCompression=yes
 WizardStyle=modern
@@ -32,7 +32,7 @@ Name: "assoc"; Description: "Open .md files with Leaf Markdown"; GroupDescriptio
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\dist\{#AppExe}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\build\app\{#AppExe}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\LICENSE"; DestDir: "{app}"; DestName: "LICENSE.txt"; Flags: ignoreversion
 Source: "..\THIRD-PARTY-NOTICES.md"; DestDir: "{app}"; Flags: ignoreversion
 
@@ -78,8 +78,9 @@ var
 begin
   Result := True;
   if not HasDesktopRuntime10 then
-    if MsgBox('Leaf Markdown needs the .NET 10 Desktop Runtime (x64), which is not installed.' + #13#10#13#10 +
+    // Suppressible, so silent installs from Vitool Box never block on it (answers No).
+    if SuppressibleMsgBox('Leaf Markdown needs the .NET 10 Desktop Runtime (x64), which is not installed.' + #13#10#13#10 +
               'Open the download page? You can continue the setup and install it afterwards.',
-              mbConfirmation, MB_YESNO) = IDYES then
+              mbConfirmation, MB_YESNO, IDNO) = IDYES then
       ShellExec('open', 'https://dotnet.microsoft.com/download/dotnet/10.0', '', '', SW_SHOWNORMAL, ewNoWait, Code);
 end;
