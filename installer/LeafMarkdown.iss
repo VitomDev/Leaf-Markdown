@@ -1,5 +1,5 @@
 ﻿#define AppName "Leaf Markdown"
-#define AppVersion "1.0.0"
+#define AppVersion "1.0.1"
 #define AppExe "LeafMarkdown.exe"
 #define ProgId "LeafMarkdown.Markdown"
 
@@ -30,6 +30,10 @@ WizardStyle=modern
 [Tasks]
 Name: "assoc"; Description: "Open .md files with Leaf Markdown"; GroupDescription: "{cm:AdditionalIcons}"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+
+[Messages]
+; Shown above the license on the wizard's license page.
+LicenseLabel3=Leaf is free and open source. If you paid for it, you were scammed: the official download is only at github.com/VitomDev. Please read the license below and accept it to continue.
 
 [Files]
 Source: "..\build\app\{#AppExe}"; DestDir: "{app}"; Flags: ignoreversion
